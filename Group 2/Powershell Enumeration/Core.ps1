@@ -1,4 +1,4 @@
-﻿# Function to get ACLs of a directory
+﻿#Function to get ACLs of a directory
 function Get-DirectoryACL {
     param (
         [string]$Path
@@ -8,7 +8,7 @@ function Get-DirectoryACL {
     $acl | Format-List
 }
 
-# Function to get the hostname of the host
+#Function to get the hostname of the host
 function Get-Hostname {
     $hostname = hostname
     $hostname
