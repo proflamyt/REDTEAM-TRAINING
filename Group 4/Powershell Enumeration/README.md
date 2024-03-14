@@ -4,13 +4,11 @@ Enumerate.ps1 is a PowerShell script designed for host enumeration on Windows sy
 
 ## Features
 
-- Retrieves basic system information (OS version, architecture, hostname, domain, etc.)
-- Enumerates local user accounts and their privileges
-- Lists installed software and hotfixes
-- Checks for potentially malicious scheduled tasks
+- Retrieves basic system information (hostname, domain, etc.)
+- Enumerates local user accounts ACLS
+- Checks for scheduled tasks
 - Displays running processes and services
-- Enumerates network interfaces, connections, and firewall rules
-- Checks for signs of malware and persistence mechanisms
+
 
 ## Usage
 
