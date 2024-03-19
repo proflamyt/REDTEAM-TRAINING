@@ -5,7 +5,7 @@ function Get-Hostname {
 
 # Function to get security groups
 function Get-SecurityGroups {
-    Get-LocalGroup
+    Get-LocalGroup | fl
 }
 
 # Function to get processes
@@ -57,6 +57,24 @@ function Get-PathAcl {
     Get-Acl -Path $path
     }
 
+#Function to get all Users on a host
+function Get-Win32UserAccount {
+    # Get all user accounts using WMI
+    $userAccounts = Get-WmiObject Win32_UserAccount
+
+    # Output the user accounts
+    return $userAccounts
+}
+
+# Call the function to get user accounts
+function Get-UserAccounts {
+    # Get all user accounts using WMI
+    $userAccounts = Get-WmiObject Win32_UserAccount
+
+    # Output the user accounts
+    return $userAccounts
+}
+
 
 # Main script
 Write-Host "Under the Nose of Yuki"
@@ -71,6 +89,7 @@ Write-Host "7. Services"
 Write-Host "8. Scheduled Tasks"
 Write-Host "9. AutoStart Processes"
 Write-Host "10. ACLs"
+Write-Host "11. User Accounts"
 
 # Read user input
 $userChoice = Read-Host "Enter the number corresponding to the information you want to retrieve"
@@ -87,5 +106,6 @@ switch ($userChoice) {
     8 { Get-ScheduledTasks }
     9 { Get-AutoStartProcesses }
     10 {Get-PathAcl}
-    default { Write-Host "Invalid choice. Please select a number between 1 and 10." }
+    11 {Get-UserAccounts}
+    default { Write-Host "Invalid choice. Please select a number between 1 and 11." }
 }
